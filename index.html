@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JQuery自定義動畫案例</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      width: 600px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    #box {
+      width: 600px;
+      height: 200px;
+      border: 2px solid black;
+      margin: 50px auto;
+      padding: 10px;
+      background-color: black;
+    }
+
+    #box li {
+      width: 120px;
+      height: 200px;
+      float: left;
+    }
+
+    #box img {
+      width: 600px;
+      height: 200px;
+    }
+
+    h3 {
+      color: mediumpurple;
+      width: 600px;
+      height: 50px;
+      line-height: 50px;
+      margin: 50px auto 10px;
+      text-align: center;
+    }
+
+    p {
+      width: 350px;
+      height: auto;
+      background-color: rgb(240, 230, 255);
+      line-height: 20px;
+      padding: 10px 20px;
+      border: 1px solid mediumpurple;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    u {
+      background-color: lavender;
+      margin: 0 auto;
+      display: inline-block;
+      color: darkblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>手風琴案例：</h3>
+  <u>
+    //為了防止動畫一直被執行 在執行動畫前先停止所有動畫
+  </u>
+  <p>鼠標移入讓當前圖片寬度增加其餘縮小<br>鼠標移出讓所有圖片恢復統一寬度</p>
+  <div id="box">
+    <ul>
+      <li><img src="./img/1.jpg" alt=""></li>
+      <li><img src="./img/2.jpg" alt=""></li>
+      <li><img src="./img/3.jpg" alt=""></li>
+      <li><img src="./img/4.jpg" alt=""></li>
+      <li><img src="./img/5.jpg" alt=""></li>
+    </ul>
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      $('li').mouseenter(function () {
+        $(this).stop().animate({
+          width: 500
+        }).siblings().stop().animate({
+          width: 25
+        })
+      }).mouseleave(function () {
+        $('li').stop().animate({
+          width: 120
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>
